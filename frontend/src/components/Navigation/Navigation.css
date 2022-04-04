@@ -4,10 +4,10 @@
 }
 
 .navList{
-    width: max-content;
+    width: 100%;
     background:  rgb(255,56,92);;
     padding: 1rem;
-    display: flex;
+    display: block;
     justify-content: flex-end;
     align-items: center;
     list-style: none;
