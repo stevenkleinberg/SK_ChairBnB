@@ -9,6 +9,30 @@ router.get('/', asyncHandler( async function(req,res){
     return res.json(chairs)
 }));
 
+router.post('/', asyncHandler(async function(req,res){
+    const { name,
+            description,
+            address,
+            city,
+            country,
+            state,
+            price,
+            userId
+    } = req.body
+
+    const chair = await Chair.create({
+        name,
+        description,
+        address,
+        city,
+        country,
+        state,
+        price,
+        userId
+    })
+    return res.json(chair);
+}))
+
 router.get('/:id', asyncHandler( async function(req,res){
     const chair = await Chair.findOne({
         where:{ id: req.params.id,

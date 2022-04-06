@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import './ChairForm.css'
+import { addChair } from "../../store/chair";
 
 export default function NewChairForm() {
+    const sessionUser = useSelector(state => state.session.user);
+    const userId = sessionUser.id;
+
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [address, setAddress] = useState('')
@@ -10,9 +15,34 @@ export default function NewChairForm() {
     const [state, setState] = useState('')
     const [country, setCountry] = useState('')
     const [price, setPrice] = useState(0);
+
+    const dispatch = useDispatch()
+    const history = useHistory();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const payload ={
+            userId,
+            name,
+            description,
+            address,
+            city,
+            state,
+            country,
+            price
+        }
+
+        let newChair;
+        newChair = await dispatch(addChair(payload));
+        if(newChair){
+            history.push(`/chairs/${newChair.id}`)
+        }
+    }
+
     return (
         <div className="chair-form">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <h1>Add a Chair!</h1>
                 <label className="chairFormLabel">
                     Chair Name
