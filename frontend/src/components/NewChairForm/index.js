@@ -6,7 +6,10 @@ import { addChair } from "../../store/chair";
 
 export default function NewChairForm() {
     const sessionUser = useSelector(state => state.session.user);
-    const userId = sessionUser.id;
+    let userId;
+    if(sessionUser){
+        userId = sessionUser.id;
+    }
 
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
@@ -39,7 +42,13 @@ export default function NewChairForm() {
             history.push(`/chairs/${newChair.id}`)
         }
     }
-
+    if(!sessionUser){
+        return (
+            <div>
+                <h1>Please log in or sign up to add a chair!</h1>
+            </div>
+        )
+    }
     return (
         <div className="chair-form">
             <form onSubmit={handleSubmit}>
