@@ -7,11 +7,12 @@
     width: 100%;
     background:  rgb(255,56,92);;
     padding: 1rem;
-    display: block;
+    display: flex;
     justify-content: flex-end;
     align-items: center;
     list-style: none;
 }
+
 .navItem{
     list-style: none;
 }

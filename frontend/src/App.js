@@ -6,7 +6,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import ChairsList from "./components/ChairsList/ChairsList";
-
+import ChairForm from "./components/ChairForm";
+import ChairDetail from "./components/ChairDetail";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -22,12 +23,16 @@ function App() {
            <Route exact path='/'>
             <ChairsList />
           </Route>
+          <Route path='/chairs/:id'>
+            <ChairDetail />
+          </Route>
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/chairs'>
-            <ChairsList />
+          <Route path='/add-chair'>
+            <ChairForm />
           </Route>
+
         </Switch>
       )}
     </>

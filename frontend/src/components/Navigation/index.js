@@ -24,12 +24,13 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <ul className='navList'>
-      <li>
+    <div className='navList'>
+      <div>
         <NavLink className='navItem' exact to="/"><a href="" className=''><img className='logo' src={logo} alt=""/></a> </NavLink>
         {isLoaded && sessionLinks}
-      </li>
-    </ul>
+        <NavLink className='navItem' to='/add-chair'>Add a Chair</NavLink>
+      </div>
+    </div>
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory, Redirect } from "react-router-dom";
 import { getChairs } from '../../store/chair'
 import ChairCard from "../ChairCard";
 import './ChairsList.css'
@@ -9,9 +10,10 @@ import './ChairsList.css'
 
 function ChairsList() {
     const dispatch = useDispatch();
+    const history = useHistory()
 
 
-    const {chairs} = useSelector(state => {
+    const chairs = useSelector(state => {
             return state.chairs
         })
 
