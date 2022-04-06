@@ -55,9 +55,17 @@ router.put('/:id', asyncHandler( async function(req, res){
     chair.updatedAt = new Date();
     await chair.save();
 
-    res.json(chair)
+    return res.json(chair)
 
 
 }));
+
+router.delete('/:id',asyncHandler( async function(req, res){
+    const id  = req.params.id;
+
+    const chair = await Chair.findByPk(id);
+    await chair.destroy();
+    return res.json(id)
+}))
 
 module.exports = router;

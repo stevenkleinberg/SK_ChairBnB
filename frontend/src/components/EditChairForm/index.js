@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory  } from "react-router-dom";
+import { useParams, useHistory, NavLink  } from "react-router-dom";
 import { editChair } from "../../store/chair";
 import './ChairForm.css'
 
@@ -122,6 +122,7 @@ export default function EditChairForm() {
                         required
                     />
                 </label>
+                <button><NavLink to={`/chairs/${id}`}>Cancel</NavLink></button>
                 <button type="submit">Save Changes</button>
 
             </form>

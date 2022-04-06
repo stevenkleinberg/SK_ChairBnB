@@ -3,16 +3,21 @@ import { csrfFetch } from "./csrf";
 // CONSTANT VARIABLES
 const LOAD_CHAIRS = 'chairs/LOAD_CHAIRS'
 const ADD_CHAIR = 'chairs/ADD_CHAIR'
+const REMOVE_CHAIR = 'chairs/REMOVE_CHAIR'
 
 // --------
 // ACTION CREATOR SECTION
-export const loadChairs = chairs =>({
+export const load = chairs => ({
     type: LOAD_CHAIRS,
     chairs,
 });
-export const addOneChair = (chair) => ({
+export const add = (chair) => ({
     type: ADD_CHAIR,
     chair
+});
+export const remove = (id) => ({
+    type: REMOVE_CHAIR,
+    id
 })
 
 
@@ -23,20 +28,19 @@ export const addOneChair = (chair) => ({
 export const getChairs = () => async dispatch => {
     const response = await csrfFetch('/api/chairs');
 
-    if (response.ok){
+    if (response.ok) {
         const chairs = await response.json();
-        dispatch(loadChairs(chairs))
+        dispatch(load(chairs))
         return chairs
     }
 }
 
 export const getOneChair = (id) => async dispatch => {
-    console.log(id)
     const response = await csrfFetch(`/api/chairs/${id}`);
 
-    if (response.ok){
+    if (response.ok) {
         const chair = await response.json();
-        dispatch(addOneChair(chair))
+        dispatch(add(chair))
         return chair
     }
 }
@@ -47,46 +51,59 @@ export const editChair = (payload) => async dispatch => {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
-      });
+    });
 
-    if(response.ok){
+    if (response.ok) {
         const chair = await response.json();
-        dispatch(addOneChair(chair));
+        dispatch(add(chair));
         return chair;
     }
 }
 
 export const addChair = (payload) => async dispatch => {
-    console.log('newchairTHUNK')
     const response = await csrfFetch(`/api/chairs/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
-      });
-      if(response.ok){
+    });
+    if (response.ok) {
         const chair = await response.json();
-        dispatch(addOneChair(chair));
+        dispatch(add(chair));
         return chair;
+    }
+}
+
+export const removeChair = (id) => async dispatch => {
+
+    const response = await csrfFetch(`/api/chairs/${id}`, {
+        method: 'DELETE',
+    });
+    if (response.ok) {
+
+        dispatch(remove(id));
+        return id;
     }
 }
 // --------
 // reducer
-const chairsReducer = (state = {}, action) =>{
+const chairsReducer = (state = {}, action) => {
     switch (action.type) {
         case LOAD_CHAIRS:
             const chairs = {};
-            console.log("action.chairs pre foreach", action.chairs)
             action.chairs.forEach(chair => {
                 chairs[chair.id] = chair;
             });
-            return { ...state, ...chairs}
+            return { ...state, ...chairs }
         case ADD_CHAIR:
-                const newState = {
-                    ...state,
-                    [action.chair.id]: action.chair
-                }
-                return newState;
-
+            const newState = {
+                ...state,
+                [action.chair.id]: action.chair
+            }
+            return newState;
+        case REMOVE_CHAIR:
+            const stateCopy = { ...state };
+            delete stateCopy[action.id];
+            return stateCopy;
         default:
             return state;
     }

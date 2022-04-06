@@ -20,7 +20,7 @@ function ChairsList() {
     useEffect(()=> {
         dispatch(getChairs())
     }, [dispatch])
-    console.log("chairs in chairlistComponent", chairs);
+
 
 
     if (!chairs){
@@ -30,7 +30,7 @@ function ChairsList() {
         <div>
             <h1>Chairs to sit in: </h1>
             { Object.values(chairs).map((chair) => {
-                return <ChairCard chair={chair} />
+                return <ChairCard key={chair.id} chair={chair} />
             })}
         </div>
     );
