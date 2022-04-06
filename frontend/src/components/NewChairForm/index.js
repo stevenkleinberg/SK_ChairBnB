@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './ChairForm.css'
 
-export default function ChairForm() {
+export default function NewChairForm() {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [address, setAddress] = useState('')

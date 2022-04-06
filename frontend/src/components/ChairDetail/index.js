@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams, NavLink } from "react-router-dom";
 import { getOneChair } from '../../store/chair'
 import ChairCard from "../ChairCard";
 
 
 
 const ChairDetail = () => {
+
     const params = useParams()
     const {id} = params
     const chair = useSelector(state => {
@@ -14,9 +15,12 @@ const ChairDetail = () => {
     })
     const dispatch = useDispatch();
 
+
     useEffect(() => {
         dispatch(getOneChair(id))
     }, [dispatch])
+
+
 
     return (
         <div className="chairDetail">
@@ -29,7 +33,7 @@ const ChairDetail = () => {
         </div>
             }
             <div>
-                <button>Edit</button>
+                <NavLink to={`/chairs/edit/${id}`}>Edit</NavLink>
                 <button>Delete</button>
             </div>
         </div>

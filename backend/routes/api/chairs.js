@@ -34,5 +34,6 @@ router.put('/:id', asyncHandler( async function(req, res){
     res.json(chair)
 
 
-}))
+}));
+
 module.exports = router;

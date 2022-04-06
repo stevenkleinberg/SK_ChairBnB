@@ -25,6 +25,7 @@ export const getChairs = () => async dispatch => {
     if (response.ok){
         const chairs = await response.json();
         dispatch(loadChairs(chairs))
+        return chairs
     }
 }
 
@@ -35,6 +36,22 @@ export const getOneChair = (id) => async dispatch => {
     if (response.ok){
         const chair = await response.json();
         dispatch(addOneChair(chair))
+        return chair
+    }
+}
+
+export const editChair = (payload) => async dispatch => {
+    const id = payload.id;
+    const response = await fetch(`/api/chairs/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+    if(response.ok){
+        const chair = await response.json();
+        dispatch(addOneChair(chair));
+        return chair;
     }
 }
 
@@ -50,14 +67,12 @@ const chairsReducer = (state = {}, action) =>{
             });
             return { ...state, ...chairs}
         case ADD_CHAIR:
-            if(!state[action.chair.id]){
                 const newState = {
                     ...state,
                     [action.chair.id]: action.chair
                 }
                 return newState;
-            }
-            return state;
+
         default:
             return state;
     }
