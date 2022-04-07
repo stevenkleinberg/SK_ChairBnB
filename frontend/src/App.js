@@ -9,9 +9,13 @@ import ChairsList from "./components/ChairsList/ChairsList";
 import NewChairForm from "./components/NewChairForm";
 import ChairDetail from "./components/ChairDetail";
 import EditChairForm from "./components/EditChairForm";
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  useEffect(() => {
+    document.title = "ChairBnB"
+ }, []);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);

@@ -30,10 +30,10 @@ const ChairDetail = () => {
 
     return (
         <div className="chairDetail">
-            <h1>chair detail</h1>
             {chair &&
-                <div className="chair-card">
-                    <h2>{chair.name}</h2>
+                <div className="chair-detail">
+                    <h1 className="chair-detail-name">{chair.name}</h1>
+                    <div className="chair-detail-img"></div>
                     <h3>{chair.description}</h3>
                     <h3>{`$${chair.price} per sit`}</h3>
                 </div>

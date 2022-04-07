@@ -1,5 +1,94 @@
-/* TODO Add site wide styles */
-body{
+*{
     margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10px;
+    background:  rgb(255,56,92);
+
+
+}
+
+.logo{
+    cursor: pointer;
+    width: 40%;
+    height: 40%;
+
+}
+
+.navButton{
+    display: inline-block;
+    padding: 0px 20px;
+    text-decoration: none;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(12rem,16rem));
+    gap: 2rem;
+    justify-content: center;
+}
+.chair-card{
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgb(255,56,92);
+    border-radius: 0.2rem ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 200ms ease-in;
+
+
+}
+.chair-card:hover{
+    transform: scale(1.02);
+
+
+}
+.chair-card .chair-card__img{
+    height: 12rem;
     width: 100%;
+    object-fit: cover;
+}
+.chair-card .chair-card__name{
+    padding:1rem;
+}
+.chair-card .chair-card__desc{
+    padding: 0 1rem;
+}
+.chair-card .chair-card__price{
+    padding: 1rem;
+}
+.chair-card .chair-card__btn{
+    padding: 1rem;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid rgb(255,56,92) ;
+    background: transparent;
+    color: rgb(255,56,92);
+    border-radius: 0.2rem;
+    transition: background 200ms ease-in, color 200ms ease-in;
+}
+.chair-card__btn__navlink{
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 1rem;
+    text-decoration: none;
+    color: inherit;
+
+}
+.chair-card .chair-card__btn:hover{
+    background: rgb(255,56,92);
+    color:white;
+}
+
+.chairs-list {
+    padding: 1rem;
 }
