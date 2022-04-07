@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Redirect } from "react-router-dom";
 import { getChairs } from '../../store/chair'
 import ChairCard from "../ChairCard";
-import './ChairsList.css'
+// import './ChairsList.css'
 
 
 
@@ -27,11 +27,12 @@ function ChairsList() {
         return null
     }
     return (
-        <div>
-            <h1>Chairs to sit in: </h1>
+        <div className="chairs-list">
+            <div className="wrapper">
             { Object.values(chairs).map((chair) => {
                 return <ChairCard key={chair.id} chair={chair} />
             })}
+            </div>
         </div>
     );
 }

@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import logo from '../../assets/logo.png'
-import './Navigation.css';
+
+
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -12,23 +13,29 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton className='navItem' user={sessionUser} />
+    <>
+      <ProfileButton user={sessionUser} />
+    </>
     );
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal className='navItem' />
-        <NavLink className='navItem' to="/signup">Sign Up</NavLink>
+        <LoginFormModal className='navButton' />
+        <NavLink className='navButton' to="/signup">Sign Up</NavLink>
       </>
     );
   }
 
   return (
-    <div className='navList'>
-      <div>
-        <NavLink className='navItem' exact to="/"><a href="" className=''><img className='logo' src={logo} alt=""/></a> </NavLink>
+    <div className='navBar' >
+        <NavLink exact to="/"><a href=""><img className='logo' src={logo} alt=""/></a></NavLink>
+        <div className='navMiddle'>
+        <NavLink className='navButton' to='/add-chair'>Add a Chair</NavLink>
+        <NavLink className='navButton' to='/add-chair'>Check Bookings</NavLink>
+        <NavLink className='navButton' to='/add-chair'>mabye another one</NavLink>
+        </div>
+      <div className='NavRight'>
         {isLoaded && sessionLinks}
-        <NavLink className='navItem' to='/add-chair'>Add a Chair</NavLink>
       </div>
     </div>
   );
