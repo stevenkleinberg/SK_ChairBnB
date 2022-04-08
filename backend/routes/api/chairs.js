@@ -5,7 +5,9 @@ const { Chair  } = require('../../db/models');
 const router = express.Router();
 
 router.get('/', asyncHandler( async function(req,res){
-    const chairs = await Chair.findAll()
+    const chairs = await Chair.findAll({
+        include: 'Images'
+    })
     return res.json(chairs)
 }));
 
@@ -37,6 +39,7 @@ router.get('/:id', asyncHandler( async function(req,res){
     const chair = await Chair.findOne({
         where:{ id: req.params.id,
         },
+        include: 'Images'
     })
     return res.json(chair);
 }))
