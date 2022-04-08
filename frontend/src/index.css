@@ -92,3 +92,70 @@
 .chairs-list {
     padding: 1rem;
 }
+
+.details-wrapper{
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "img info info ."
+    "img booking booking booking"
+    "edit booking booking booking";
+    gap: 2rem;
+    justify-content:center;
+}
+
+.chair-detail-card-info{
+    grid-area: info;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgb(255,56,92);
+    border-radius: 0.2rem ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-start;
+}
+.chair-detail-card-img{
+    grid-area: img;
+    overflow:hidden;
+    box-shadow: 0 2px 20px rgb(255,56,92);
+    border-radius: 0.2rem ;
+
+
+}
+.chair-detail-desc{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:flex-end;
+
+}
+.chair-detail-card-name{
+    grid-area: info;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgb(255,56,92);
+    border-radius: 0.2rem ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+}
+.chair-detail-location{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+
+}
+.chair-detail-card-booking{
+    grid-area: booking;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgb(255,56,92);
+    border-radius: 0.2rem ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+}
