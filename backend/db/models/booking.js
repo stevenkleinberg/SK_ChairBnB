@@ -22,10 +22,10 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Booking.associate = function(models) {
     Booking.belongsTo(models.User, {
-      foreighnKey: 'userId'
+      foreignKey: 'userId'
     });
     Booking.belongsTo(models.Chair, {
-      foreighnKey: 'chairId'
+      foreignKey: 'chairId'
     })
   };
   return Booking;

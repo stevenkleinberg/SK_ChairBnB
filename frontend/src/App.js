@@ -9,7 +9,7 @@ import ChairsList from "./components/ChairsList/ChairsList";
 import NewChairForm from "./components/NewChairForm";
 import ChairDetail from "./components/ChairDetail";
 import EditChairForm from "./components/EditChairForm";
-
+import BookingsList from "./components/BookingsList";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -39,6 +39,9 @@ function App() {
           </Route>
           <Route path='/chairs/edit/:id' >
             <EditChairForm />
+          </Route>
+          <Route path='/my-bookings'>
+            <BookingsList />
           </Route>
 
         </Switch>

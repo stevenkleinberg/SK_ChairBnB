@@ -159,3 +159,74 @@
     align-items: center;
     justify-content:space-evenly;
 }
+
+
+.booking-card{
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgb(255,56,92);
+    border-radius: 0.2rem ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 200ms ease-in;
+
+
+}
+.booking-card:hover{
+    transform: scale(1.02);
+
+
+}
+.booking-card .booking-card__chair-img{
+    height: 12rem;
+    width: 100%;
+    object-fit: cover;
+}
+.booking-chair-card .booking-card__chair-name{
+    display: flex;
+    padding:1rem;
+    align-items: center;
+    justify-content: center;
+}
+.booking-card .booking-chair-card__dates{
+    padding: 0 1rem;
+
+}
+
+.booking-card .booking-card__btn{
+    padding: 1rem;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid rgb(255,56,92) ;
+    background: transparent;
+    color: rgb(255,56,92);
+    border-radius: 0.2rem;
+    transition: background 200ms ease-in, color 200ms ease-in;
+}
+
+.booking-card .booking-card__btn:hover{
+    background: rgb(255,56,92);
+    color:white;
+}
+
+.bookings-list{
+    padding: 1rem;
+}
+.booking-card-dates-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.booking-card__body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
