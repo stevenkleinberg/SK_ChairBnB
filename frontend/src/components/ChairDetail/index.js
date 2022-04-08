@@ -8,6 +8,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import ImageSwiper from "../ImageSwiper";
+import BookingForm from "../BookingForm";
 
 
 const ChairDetail = () => {
@@ -49,16 +50,17 @@ const ChairDetail = () => {
                         <div className="chair-detail-location">
                             <p>{`${chair.address} ${chair.city}, ${chair.state}`}</p>
                         </div>
-                    <div className="chair-detail-desc">
-                        <h2>About this Chair</h2>
-                        <h3 className="chair-detail-desc">{chair.description}</h3>
+                        <div className="chair-detail-desc">
+                            <h2>About this Chair</h2>
+                            <h3 className="chair-detail-desc">{chair.description}</h3>
+                        </div>
                     </div>
+                    <div className="chair-detail-card-booking">
+                        <BookingForm chair={chair} />
                     </div>
-
-
                 </>
             }
-            {userId === chair.userId &&
+            {userId === chair?.userId &&
                 <div>
                     <NavLink to={`/chairs/edit/${id}`}>Edit</NavLink>
                     <DeleteChairModal chair={chair} />
@@ -66,25 +68,6 @@ const ChairDetail = () => {
 
             }
 
-            <div className="chair-detail-card-booking">
-                <h3>{`$${chair.price} per sit`}</h3>
-                <div className="booking-form-box">
-                    <form>
-                        <span className="date-picker-span">
-                            <label className="booking-form-Label">
-                                Sit Down
-                                <input type="text" />
-                            </label>
-                            <label className="booking-form-Label">
-                                Stand Up
-                                <input type="text" />
-                            </label>
-                        </span>
-                        <p>{`Total: $${chair.price}`}</p>
-                        <button type="submit">Book this Chair! </button>
-                    </form>
-                </div>
-            </div>
         </div>
     )
 }
