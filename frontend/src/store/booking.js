@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 // CONSTANT VARIABLES
 const ADD_BOOKING = 'bookings/ADD_BOOKING'
 const LOAD_USERS_BOOKINGS = 'bookings/LOAD_USERS_BOOKINGS'
+const REMOVE_BOOKING = 'bookings/REMOVE_BOOKING'
 
 // --------
 // ACTION CREATOR SECTION
@@ -14,6 +15,11 @@ export const add = (booking) => ({
 export const loadUsersBookings = (bookings) => ({
     type:LOAD_USERS_BOOKINGS,
     bookings
+})
+
+export const remove = (id) => ({
+    type: REMOVE_BOOKING,
+    id
 })
 
 
@@ -44,6 +50,19 @@ export const getUsersBookings = (userId) => async dispatch => {
     }
 }
 
+export const removeBooking = (id) => async dispatch => {
+
+    const response = await csrfFetch(`/api/bookings/${id}`, {
+        method: 'DELETE',
+    });
+    if (response.ok) {
+
+        dispatch(remove(id));
+        return id;
+    }
+}
+// --------
+// reducer
 const bookingsReducer = (state = {}, action) => {
     switch (action.type){
         case ADD_BOOKING:
@@ -58,6 +77,10 @@ const bookingsReducer = (state = {}, action) => {
                 usersBookings[booking.id] = booking;
             })
             return usersBookings;
+            case REMOVE_BOOKING:
+                const stateCopy = { ...state };
+                delete stateCopy[action.id];
+                return stateCopy;
         default:
             return state;
     }
