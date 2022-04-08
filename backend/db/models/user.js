@@ -117,6 +117,9 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Chair, {
       foreignKey: 'userId'
     });
+    User.hasMany(models.Booking, {
+      foreignKey: 'userId'
+    });
   };
 
   return User;

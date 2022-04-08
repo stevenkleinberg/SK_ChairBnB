@@ -39,6 +39,12 @@ module.exports = (sequelize, DataTypes) => {
     Chair.belongsTo(models.User, {
       foreignKey: 'userId'
     });
+    Chair.hasMany(models.Booking, {
+      foreignKey: 'chairId'
+    });
+    Chair.hasMany(models.Image, {
+      foreignKey: 'chairId'
+    });
   };
   return Chair;
 };
