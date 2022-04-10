@@ -1,5 +1,8 @@
 
 import React, { useState, useEffect } from "react";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserGear } from '@fortawesome/free-solid-svg-icons'
+
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
@@ -10,12 +13,14 @@ import NewChairForm from "./components/NewChairForm";
 import ChairDetail from "./components/ChairDetail";
 import EditChairForm from "./components/EditChairForm";
 import BookingsList from "./components/BookingsList";
+library.add( faUserGear)
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     document.title = "ChairBnB"
- }, []);
+  }, []);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -25,7 +30,7 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-           <Route exact path='/'>
+          <Route exact path='/'>
             <ChairsList />
           </Route>
           <Route exact path='/chairs/:id'>

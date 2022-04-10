@@ -13,7 +13,7 @@ import BookingForm from "../BookingForm";
 
 
 const ChairDetail = () => {
-
+    const history = useHistory();
     const params = useParams()
     const { id } = params
     const chair = useSelector(state => {
@@ -28,7 +28,9 @@ const ChairDetail = () => {
     }
     const dispatch = useDispatch();
 
-
+    const handleEditClick =()=>{
+        history.replace(`/chairs/edit/${id}`)
+    }
     useEffect(() => {
         dispatch(getOneChair(id))
     }, [dispatch])
@@ -55,20 +57,20 @@ const ChairDetail = () => {
                             <p>{`${chair.address} ${chair.city}, ${chair.state}`}</p>
                         </div>
                         <div className="chair-detail-desc">
-                            <h2>About this Chair</h2>
+                            <h4>About this Chair:</h4>
                             <h3 className="chair-detail-desc">{chair.description}</h3>
                         </div>
                         {userId === chair?.userId &&
-                            <div>
-                                <NavLink to={`/chairs/edit/${id}`}>Edit</NavLink>
+                            <div className="editDeleteBtnDiv">
+                                <button className="booking-card__btn" onClick={handleEditClick}>Edit</button>
                                 <DeleteChairModal chair={chair} />
                             </div>
 
                         }
                     </div>
-                    <div className="chair-detail-card-booking">
-                        <BookingForm chair={chair} />
-                    </div>
+
+                        <BookingForm  chair={chair} />
+
                 </>
             }
 

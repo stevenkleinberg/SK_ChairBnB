@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import LoginForm from './LoginForm';
+
 import { NavLink } from "react-router-dom";
 
 function LoginFormModal() {
@@ -11,10 +12,11 @@ function LoginFormModal() {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Log In</button>
+      <button className='navbarbuttons-Li-Su' onClick={() => setShowModal(true)}>Log In</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <LoginForm closeModalFunc={closeModalFunc}/>
+
         </Modal>
       )}
     </>

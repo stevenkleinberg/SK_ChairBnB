@@ -22,6 +22,14 @@ function LoginForm({closeModalFunc}) {
     );
   };
 
+  const handleClickDemo = () => {
+
+    setCredential('demo@user.io')
+    setPassword('password')
+
+
+}
+
   return (
     <div className="logInFormDiv">
       <form className="logInForm" onSubmit={handleSubmit}>
@@ -39,7 +47,7 @@ function LoginForm({closeModalFunc}) {
             placeholder="Username or Email"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
-            required
+
           />
         </label>
         <label className="logInLabel">
@@ -50,13 +58,14 @@ function LoginForm({closeModalFunc}) {
             value={password}
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
-            required
+
           />
         </label>
         <div className='signUpLink'>
           <NavLink to="/signup" onClick={()=> closeModalFunc()}>Don't Have an Account? </NavLink>
         </div>
-        <button type="submit">Log In</button>
+        <button  className="booking-card__btn" type="submit">Log In</button>
+        <button  className="booking-card__btn"  onClick={handleClickDemo}>Demo User</button>
       </form>
     </div>
   );

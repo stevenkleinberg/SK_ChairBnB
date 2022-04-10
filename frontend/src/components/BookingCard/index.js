@@ -36,7 +36,7 @@ export default function BookingCard({ booking }) {
         <div className="booking-card" >
             <div className="booking-card__body">
                 <img className="booking-card__chair-img" src={mainImgUrl} />
-                <h2 className="booking-card__chair-name">{chair.name}</h2>
+                <h2 className="booking-card__chair-name"><NavLink className='booking-card-navlink' to={`/chairs/${booking.chairId}`}>{chair.name}</NavLink></h2>
                 {sitDate === standDate &&
                     <p className="booking-card__dates">{sitDate.toDateString()}</p>
                 }
