@@ -4,6 +4,7 @@ import { useHistory, useParams, NavLink } from "react-router-dom";
 import { getOneChair } from '../../store/chair'
 import ChairCard from "../ChairCard";
 import DeleteChairModal from "../DeleteChairModal";
+import AddImagesModal from "../AddImagesModal";
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
@@ -40,8 +41,11 @@ const ChairDetail = () => {
                 <>
                     <div className="chair-detail-card-img">
 
-                        {chair.Images.length >= 1 &&
+                        {chair.Images &&
                             <ImageSwiper className="chair-detail-img" images={chair.Images} />
+                        }
+                        {userId === chair?.userId &&
+                          <AddImagesModal chairId={chair.id} />
                         }
 
                     </div>
@@ -54,19 +58,20 @@ const ChairDetail = () => {
                             <h2>About this Chair</h2>
                             <h3 className="chair-detail-desc">{chair.description}</h3>
                         </div>
+                        {userId === chair?.userId &&
+                            <div>
+                                <NavLink to={`/chairs/edit/${id}`}>Edit</NavLink>
+                                <DeleteChairModal chair={chair} />
+                            </div>
+
+                        }
                     </div>
                     <div className="chair-detail-card-booking">
                         <BookingForm chair={chair} />
                     </div>
                 </>
             }
-            {userId === chair?.userId &&
-                <div>
-                    <NavLink to={`/chairs/edit/${id}`}>Edit</NavLink>
-                    <DeleteChairModal chair={chair} />
-                </div>
 
-            }
 
         </div>
     )

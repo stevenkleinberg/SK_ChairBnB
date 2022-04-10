@@ -159,3 +159,140 @@
     align-items: center;
     justify-content:space-evenly;
 }
+
+
+.booking-card{
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgb(255,56,92);
+    border-radius: 0.2rem ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 200ms ease-in;
+
+
+}
+.booking-card:hover{
+    transform: scale(1.02);
+
+
+}
+.booking-card .booking-card__chair-img{
+    height: 12rem;
+    width: 100%;
+    object-fit: cover;
+}
+.booking-chair-card .booking-card__chair-name{
+    display: flex;
+    padding:1rem;
+    align-items: center;
+    justify-content: center;
+}
+.booking-card .booking-chair-card__dates{
+    padding: 0 1rem;
+
+}
+
+.booking-card .booking-card__btn{
+    padding: 1rem;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid rgb(255,56,92) ;
+    background: transparent;
+    color: rgb(255,56,92);
+    border-radius: 0.2rem;
+    transition: background 200ms ease-in, color 200ms ease-in;
+}
+
+.booking-card .booking-card__btn:hover{
+    background: rgb(255,56,92);
+    color:white;
+}
+
+.bookings-list{
+    padding: 1rem;
+}
+.booking-card-dates-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.booking-card__body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    text-align: center;
+
+}
+.errorsList{
+    list-style-type: none;
+    display: block;
+    width: 350px ;
+    height: 40px;
+    margin: 20px;
+    border: none;
+    font-size: 15px;
+
+}
+.chairFormInput{
+    display: block;
+    width: 350px ;
+    height: 40px;
+    margin: 20px;
+    border: none;
+    font-size: 20px;
+    border-bottom: 1px solid;
+}
+.chairFormLabel{
+
+    font-size: 20px;
+}
+form button {
+    width: 350px;
+    height: 40px;
+    font-size: 20px;
+    background-color: rgb(255,56,92);
+border: none;
+color: white;
+margin-top: 30px;
+margin-bottom: 30px;
+}
+form h1 {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+/* button{
+    padding: 1rem;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid rgb(255,56,92) ;
+    background: transparent;
+    color: rgb(255,56,92);
+    border-radius: 0.2rem;
+    transition: background 200ms ease-in, color 200ms ease-in;
+}
+
+button:hover{
+    background: rgb(255,56,92);
+    color:white;
+} */

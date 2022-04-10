@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Chair  } = require('../../db/models');
+const { Chair, Image  } = require('../../db/models');
 
 const router = express.Router();
 
@@ -19,7 +19,8 @@ router.post('/', asyncHandler(async function(req,res){
             country,
             state,
             price,
-            userId
+            userId,
+            url
     } = req.body
 
     const chair = await Chair.create({
@@ -32,13 +33,19 @@ router.post('/', asyncHandler(async function(req,res){
         price,
         userId
     })
+
+    const chairId = chair.id
+    const image =await Image.create({
+        chairId,
+        url
+    })
+
     return res.json(chair);
 }))
 
 router.get('/:id', asyncHandler( async function(req,res){
-    const chair = await Chair.findOne({
-        where:{ id: req.params.id,
-        },
+    const id = req.params.id
+    const chair = await Chair.findByPk(id, {
         include: 'Images'
     })
     return res.json(chair);

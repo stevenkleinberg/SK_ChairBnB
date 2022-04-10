@@ -37,7 +37,7 @@ export default function EditChairForm() {
         let updatedChair;
         updatedChair = await dispatch(editChair(payload));
         if(updatedChair){
-            history.push(`/chairs/${id}`)
+            history.replace(`/chairs/${id}`)
         }
     }
 

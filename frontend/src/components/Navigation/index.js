@@ -31,7 +31,7 @@ function Navigation({ isLoaded }){
         <NavLink exact to="/"><a href=""><img className='logo' src={logo} alt=""/></a></NavLink>
         <div className='navMiddle'>
         <NavLink className='navButton' to='/add-chair'>Add a Chair</NavLink>
-        <NavLink className='navButton' to='/add-chair'>Check Bookings</NavLink>
+        <NavLink className='navButton' to='/my-bookings'>Check Bookings</NavLink>
         <NavLink className='navButton' to='/add-chair'>mabye another one</NavLink>
         </div>
       <div className='NavRight'>

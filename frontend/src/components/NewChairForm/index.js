@@ -18,6 +18,7 @@ export default function NewChairForm() {
     const [state, setState] = useState('')
     const [country, setCountry] = useState('')
     const [price, setPrice] = useState(0);
+    const [url, setUrl] = useState('')
 
     const dispatch = useDispatch()
     const history = useHistory();
@@ -33,7 +34,8 @@ export default function NewChairForm() {
             city,
             state,
             country,
-            price
+            price,
+            url,
         }
 
         let newChair;
@@ -127,6 +129,17 @@ export default function NewChairForm() {
                         value={price}
                         placeholder="Name"
                         onChange={(e) => setPrice(e.target.value)}
+                        required
+                    />
+                </label>
+                <label className="chairFormLabel">
+                    Image Url
+                    <input
+                        className="chairFormInput"
+                        type="text"
+                        value={url}
+                        placeholder="Image Url"
+                        onChange={(e) => setUrl(e.target.value)}
                         required
                     />
                 </label>

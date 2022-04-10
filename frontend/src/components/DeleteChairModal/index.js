@@ -12,14 +12,12 @@ function DeleteChairModal({chair}){
     const dispatch = useDispatch()
     const history = useHistory()
     const handleClick = async (e) => {
-
-
-
         const id = chair.id;
         let deletedChair;
         deletedChair = await dispatch(removeChair(id));
         console.log("deletedchair----->",deletedChair)
         if(deletedChair){
+            closeModalFunc()
             history.replace(`/`)
         }
     }
@@ -31,8 +29,8 @@ function DeleteChairModal({chair}){
               <div className='deleteChairBox'>
                   <h1>Are you sure you want to Delete this chair?</h1>
                   <div className='deleteChairButtons'>
-                      <NavLink to='/' onClick={handleClick}>Yes</NavLink>
-                      <NavLink to={`/chairs/${chair.id}`} onClick={()=> closeModalFunc()}>No</NavLink>
+                      <button className="chair-card__btn" onClick={handleClick} >Yes</button>
+                      <button className="chair-card__btn" onClick={()=> closeModalFunc()}>No</button>
                   </div>
               </div>
             </Modal>
