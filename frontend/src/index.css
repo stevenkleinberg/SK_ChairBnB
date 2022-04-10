@@ -13,8 +13,19 @@
     background:  rgb(255,56,92);
 
 
+
+}
+.navLeft{
+    padding-left: 3rem;
 }
 
+.navRight{
+    padding-right: 3rem;
+}
+/* .navMiddle{
+    padding-right: 18rem;
+
+} */
 .logo{
     cursor: pointer;
     width: 40%;
@@ -26,6 +37,10 @@
     display: inline-block;
     padding: 0px 20px;
     text-decoration: none;
+    color: white;
+}
+.navButton:hover{
+    font-weight: bold;
 }
 .wrapper{
     display: grid;
@@ -99,9 +114,9 @@
     grid-template-columns: 20% 20% 20% 20%;
     grid-template-rows: auto;
     grid-template-areas:
-    "img info info ."
-    "img booking booking booking"
-    "edit booking booking booking";
+    "img info info booking"
+    "img  . . .";
+
     gap: 2rem;
     justify-content:center;
 }
@@ -125,6 +140,7 @@
 
 }
 .chair-detail-desc{
+    padding: 1rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -133,6 +149,7 @@
 
 }
 .chair-detail-card-name{
+    padding: 1rem;
     grid-area: info;
     overflow: hidden;
     box-shadow: 0 2px 20px rgb(255,56,92);
@@ -143,6 +160,7 @@
     justify-content:space-evenly;
 }
 .chair-detail-location{
+    padding: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -156,8 +174,8 @@
     border-radius: 0.2rem ;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content:space-evenly;
+    align-items: flex-start;
+    justify-content:space-between;
 }
 
 
@@ -251,6 +269,20 @@ form{
     font-size: 15px;
 
 }
+.signUpInput{
+    display: block;
+    width: 350px ;
+    height: 40px;
+    margin: 20px;
+    border: none;
+    font-size: 20px;
+    border-bottom: 1px solid;
+}
+.signUpLabel{
+
+    font-size: 20px;
+}
+
 .chairFormInput{
     display: block;
     width: 350px ;
@@ -264,7 +296,7 @@ form{
 
     font-size: 20px;
 }
-form button {
+/* form button {
     width: 350px;
     height: 40px;
     font-size: 20px;
@@ -273,7 +305,7 @@ border: none;
 color: white;
 margin-top: 30px;
 margin-bottom: 30px;
-}
+} */
 form h1 {
     margin-bottom: 30px;
     margin-top: 30px;
@@ -296,3 +328,175 @@ button:hover{
     background: rgb(255,56,92);
     color:white;
 } */
+.addImgModal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.booking-card__btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 1rem;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid rgb(255,56,92) ;
+    background: transparent;
+    color: rgb(255,56,92);
+    border-radius: 0.2rem;
+    transition: background 200ms ease-in, color 200ms ease-in;;
+}
+.booking-card__btn:hover{
+
+        background: rgb(255,56,92);
+        color:white;
+
+
+}
+
+.chair-form-wrapper{
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: 10% 38% 38% 10%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    ". newchair newchair ."
+    ". newchair newchair ."
+    ". newchair newchair .";
+    gap: 2rem;
+    justify-content:center;
+}
+.chair-form-card{
+    grid-area: newchair;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgb(255,56,92);
+    border-radius: 0.2rem ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 200ms ease-in;
+}
+
+.chair-form-card-inputs-container{
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .chair-form-card-inputs-container{
+        display: flex;
+        flex-direction: column;
+    }
+  }
+.userIconImg-btn{
+    background-color:  rgb(255,56,92);
+    border: none;
+}
+.userIconImg{
+    width: 25px;
+    height: 25px;
+    background-color: rgb(255,56,92);
+    cursor: pointer;
+}
+.profile-dropdown-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+}
+.profile-dropdown{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color:white;
+    list-style: none;
+}
+.profile-dropdown button{
+    padding: 1rem;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid rgb(255,56,92) ;
+    background: white;
+    color: rgb(255,56,92);
+    border-radius: 0.2rem;
+    transition: background 200ms ease-in, color 200ms ease-in;
+}
+.profile-dropdown button:hover{
+    border: 2px solid white ;
+    background: rgb(255,56,92);
+    color:white;
+
+}
+
+.navbarbuttons-Li-Su{
+    padding: 1rem;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid rgb(255,56,92) ;
+    background: white;
+    color: rgb(255,56,92);
+    border-radius: 0.2rem;
+    transition: background 200ms ease-in, color 200ms ease-in;
+}
+.navbarbuttons-Li-Su:hover{
+    border: 2px solid white ;
+    background: rgb(255,56,92);
+    color:white;
+}
+.signUpWrapper{
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: 33% 33% 33% ;
+    grid-template-rows: auto;
+    grid-template-areas:
+    ". su ."
+    ". su  ."
+    ". su .";
+    gap: 2rem;
+    justify-content:center;
+}
+.signUpFormCard{
+    grid-area: su;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgb(255,56,92);
+    border-radius: 0.2rem ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 200ms ease-in;
+}
+
+.editDeleteBtnDiv{
+    display: flex;
+    flex-direction: row;
+}
+
+.chair-edit-cancel-navlink{
+    text-decoration: none;
+    color: inherit;
+}
+.booking-form-inputs{
+    padding: 1rem;
+}
+.booking-sucsess-fail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+}
+.booking-card-navlink{
+    text-decoration: none;
+    color: inherit;
+}

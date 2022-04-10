@@ -20,7 +20,7 @@ function DeleteBookingModal({booking}){
         }
     }
     return (
-        <>
+        <div className='deleteBookingModal'>
           <button className="booking-card__btn" onClick={() => setShowModal(true)}>Cancel Booking</button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
@@ -33,7 +33,7 @@ function DeleteBookingModal({booking}){
               </div>
             </Modal>
           )}
-        </>
+        </div>
       );
 }
 

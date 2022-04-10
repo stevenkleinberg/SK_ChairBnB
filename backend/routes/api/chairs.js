@@ -2,6 +2,8 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { Chair, Image  } = require('../../db/models');
 
+const chairValidations = require('../../validations/chair')
+
 const router = express.Router();
 
 router.get('/', asyncHandler( async function(req,res){
@@ -11,7 +13,7 @@ router.get('/', asyncHandler( async function(req,res){
     return res.json(chairs)
 }));
 
-router.post('/', asyncHandler(async function(req,res){
+router.post('/', chairValidations.validateChairCreate, asyncHandler(async function(req,res){
     const { name,
             description,
             address,
@@ -51,7 +53,7 @@ router.get('/:id', asyncHandler( async function(req,res){
     return res.json(chair);
 }))
 
-router.put('/:id', asyncHandler( async function(req, res){
+router.put('/:id', chairValidations.validateChairUpdate, asyncHandler( async function(req, res){
     const id = req.body.id
 
     const chair = await Chair.findByPk(id)

@@ -6,7 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { addBooking } from "../../store/booking";
 
 const BookingForm = ({ chair }) => {
-    const [sitDate, setSitDate] = useState();
+    const [sitDate, setSitDate] = useState(new Date());
     const [standDate, setStandDate] = useState();
     const [totalCost, setTotalCost] = useState(chair.price);
     const [hasSubmitted, setHasSubmitted] = useState(false)
@@ -31,7 +31,7 @@ const BookingForm = ({ chair }) => {
 
     if (!sessionUser) {
         return (
-            <div>
+            <div className="chair-detail-card-booking">
                 <h1>Please log in or sign up to book this chair!</h1>
             </div>
         )
@@ -60,22 +60,25 @@ const BookingForm = ({ chair }) => {
 
         const readableSitDate = sitDate.toDateString()
         return (
-            <div>
-                <h1>{`Congrats ${sessionUser.username}!`}</h1>
-                <h3>{`You have sucsessfully booked ${chair.name} for ${readableSitDate} `}</h3>
+            <div className="chair-detail-card-booking">
+                <div className="booking-sucsess-fail">
+                    <h1>{`Congrats ${sessionUser.username}!`}</h1>
+                    <h3>{`You have sucsessfully booked ${chair.name} for ${readableSitDate} `}</h3>
+                </div>
             </div>
         )
     }
     return (
-        <div>
-            <h3>{`$${chair.price} per sit`}</h3>
-            <div className="booking-form-box">
-                <form className="chair-form" onSubmit={handleSubmit}>
-                    <span className="date-picker-span">
+        <div className="chair-detail-card-booking">
+            <div className="booking-form">
+                <form onSubmit={handleSubmit}>
+                    <h1>{`Take a seat on ${chair.name}`}</h1>
+                    <h3>{`$${chair.price} per sit`}</h3>
+                    <div className="booking-form-inputs">
+
                         <label className="chairFormLabel">
                             Sit Down
                             <DatePicker
-
                                 selected={sitDate}
                                 onChange={date => setSitDate(date)}
                                 minDate={new Date()}
@@ -89,14 +92,15 @@ const BookingForm = ({ chair }) => {
 
                                 selected={standDate}
                                 onChange={date => setStandDate(date)}
-                                minDate={new Date()}
+                                minDate={sitDate}
                                 showYearDropdown
                                 scrollableMonthYearDropdown
                             />
                         </label>
-                    </span>
+                    </div>
+
                     <p>{`Total: $${totalCost}`}</p>
-                    <button type="submit">Book this Chair! </button>
+                    <button  className="booking-card__btn"  type="submit">Book this Chair! </button>
                 </form>
             </div>
         </div>

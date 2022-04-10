@@ -28,18 +28,19 @@ function AddImagesModal({chairId}){
         }
     }
     return (
-        <>
+        <div className='addImgModal'>
           <button className="booking-card__btn" onClick={() => setShowModal(true)}>Add More Images!</button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <form className='addImgForm' onSubmit={handleSubmit}>
+              <h1>Add Another Image</h1>
               <label className="chairFormLabel">
                     Image Url
                     <input
                         className="chairFormInput"
                         type="text"
                         value={url}
-                        placeholder="Name"
+                        placeholder="Url"
                         onChange={(e) => setUrl(e.target.value)}
                         required
                     />
@@ -51,7 +52,7 @@ function AddImagesModal({chairId}){
               </form>
             </Modal>
           )}
-        </>
+        </div>
       );
 }
 export default AddImagesModal;

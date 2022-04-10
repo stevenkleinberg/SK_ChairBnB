@@ -11,7 +11,8 @@ function DeleteChairModal({chair}){
     }
     const dispatch = useDispatch()
     const history = useHistory()
-    const handleClick = async (e) => {
+    const handleSubmit = async (e) => {
+      e.preventDefault();
         const id = chair.id;
         let deletedChair;
         deletedChair = await dispatch(removeChair(id));
@@ -22,20 +23,20 @@ function DeleteChairModal({chair}){
         }
     }
     return (
-        <>
-          <button onClick={() => setShowModal(true)}>Delete</button>
+        <div className='deleteChairModal'>
+          <button  className="booking-card__btn" onClick={() => setShowModal(true)}>Delete</button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-              <div className='deleteChairBox'>
+              <form className='deleteChairForm' onSubmit={handleSubmit}>
                   <h1>Are you sure you want to Delete this chair?</h1>
                   <div className='deleteChairButtons'>
-                      <button className="chair-card__btn" onClick={handleClick} >Yes</button>
-                      <button className="chair-card__btn" onClick={()=> closeModalFunc()}>No</button>
+                      <button type='submit' className="booking-card__btn" >Yes</button>
+                      <button className="booking-card__btn" onClick={()=> closeModalFunc()}>No</button>
                   </div>
-              </div>
+              </form>
             </Modal>
           )}
-        </>
+        </div>
       );
 }
 
