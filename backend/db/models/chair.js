@@ -42,10 +42,12 @@ module.exports = (sequelize, DataTypes) => {
     Chair.hasMany(models.Booking, {
       foreignKey: 'chairId',
       onDelete: 'cascade',
+      hooks: true
     });
     Chair.hasMany(models.Image, {
       foreignKey: 'chairId',
       onDelete: 'cascade',
+      hooks: true
     });
   };
   return Chair;

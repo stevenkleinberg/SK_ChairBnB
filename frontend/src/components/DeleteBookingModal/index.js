@@ -27,8 +27,8 @@ function DeleteBookingModal({booking}){
               <div className='deleteBookingBox'>
                   <h1>Are you sure you want to cancel this booking?</h1>
                   <div className='deleteBookingButtons'>
-                      <button  onClick={handleClick}>Yes</button>
-                      <button  onClick={()=> closeModalFunc()}>No</button>
+                      <button className="booking-card__btn" onClick={handleClick}>Yes</button>
+                      <button className="booking-card__btn" onClick={()=> closeModalFunc()}>No</button>
                   </div>
               </div>
             </Modal>

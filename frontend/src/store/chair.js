@@ -5,6 +5,7 @@ const LOAD_CHAIRS = 'chairs/LOAD_CHAIRS'
 const ADD_CHAIR = 'chairs/ADD_CHAIR'
 const REMOVE_CHAIR = 'chairs/REMOVE_CHAIR'
 
+
 // --------
 // ACTION CREATOR SECTION
 export const load = chairs => ({
@@ -70,6 +71,19 @@ export const addChair = (payload) => async dispatch => {
         const chair = await response.json();
         dispatch(add(chair));
         return chair;
+    }
+}
+
+export const addChairImage = (payload) => async dispatch => {
+    const response = await csrfFetch(`/api/images/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    });
+    if (response.ok) {
+        const chairId = await response.json();
+        dispatch(getOneChair(chairId));
+        return chairId;
     }
 }
 
