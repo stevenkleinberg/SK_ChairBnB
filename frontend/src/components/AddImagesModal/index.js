@@ -23,6 +23,7 @@ function AddImagesModal({chairId}){
         let newImage;
          newImage = await dispatch(addChairImage(payload));
         if(newImage){
+            setUrl('')
             closeModalFunc();
             history.replace(`/chairs/${chairId}`);
         }
