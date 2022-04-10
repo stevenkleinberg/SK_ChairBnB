@@ -10,7 +10,8 @@ function DeleteBookingModal({booking}){
     }
     const dispatch = useDispatch()
     const history = useHistory()
-    const handleClick = async (e) => {
+    const handleSubmit = async (e) => {
+      e.preventDefault();
         const id = booking.id;
         let deletedBooking;
         deletedBooking = await dispatch(removeBooking(id));
@@ -24,13 +25,13 @@ function DeleteBookingModal({booking}){
           <button className="booking-card__btn" onClick={() => setShowModal(true)}>Cancel Booking</button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-              <div className='deleteBookingBox'>
+              <form className='deleteBookingBox' onSubmit={handleSubmit}>
                   <h1>Are you sure you want to cancel this booking?</h1>
                   <div className='deleteBookingButtons'>
-                      <button className="booking-card__btn" onClick={handleClick}>Yes</button>
+                      <button type='submit' className="booking-card__btn" >Yes</button>
                       <button className="booking-card__btn" onClick={()=> closeModalFunc()}>No</button>
                   </div>
-              </div>
+              </form>
             </Modal>
           )}
         </div>

@@ -28,7 +28,7 @@ function DeleteChairModal({chair}){
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <form className='deleteChairForm' onSubmit={handleSubmit}>
-                  <h1>Are you sure you want to Delete this chair?</h1>
+                  <h1>Delete this chair?</h1>
                   <div className='deleteChairButtons'>
                       <button type='submit' className="booking-card__btn" >Yes</button>
                       <button className="booking-card__btn" onClick={()=> closeModalFunc()}>No</button>

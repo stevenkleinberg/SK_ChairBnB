@@ -1,4 +1,4 @@
-import './imageSlider.scss'
+import './imageSlider.css'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {Navigation, Thumbs} from 'swiper'
 const ImageSwiper = ({images}) =>{

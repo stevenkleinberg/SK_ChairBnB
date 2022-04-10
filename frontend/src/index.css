@@ -482,6 +482,14 @@ button:hover{
     display: flex;
     flex-direction: row;
 }
+.deleteChairButtons{
+    display: flex;
+    flex-direction: row;
+}
+.deleteBookingButtons{
+    display: flex;
+    flex-direction: row;
+}
 
 .chair-edit-cancel-navlink{
     text-decoration: none;

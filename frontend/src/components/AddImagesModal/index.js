@@ -45,7 +45,7 @@ function AddImagesModal({chairId}){
                         required
                     />
                     </label>
-                  <div className=''>
+                  <div className='deleteChairButtons'>
                       <button type='submit' className="booking-card__btn">Add Image</button>
                       <button className="booking-card__btn" onClick={()=> closeModalFunc()}>Cancel</button>
                   </div>
